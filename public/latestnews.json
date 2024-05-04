@@ -1,0 +1,23 @@
+[
+  {
+    "img_url": "https://i.ibb.co/y85DNXz/group-business-people.jpg",
+    "id": "1",
+    "heading": "Global Leaders Gather for Climate Summit",
+    "category": "Environment",
+    "date": "2024-05-03"
+  },
+  {
+    "img_url": "https://i.ibb.co/9gfLmZp/health-assistant-taking-care-female-patient.jpg",
+    "id": "2",
+    "heading": "Breakthrough Cancer Treatment Discovered",
+    "category": "Health",
+    "date": "2024-05-02"
+  },
+  {
+    "img_url": "https://i.ibb.co/S050Wwd/side-view-robots-hugging.jpg",
+    "id": "3",
+    "heading": "Tech Giants Under Fire for Data Privacy Issues",
+    "category": "Technology",
+    "date": "2024-05-01"
+  }
+]
