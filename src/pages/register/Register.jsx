@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import Navbar from "../shared/Navbar/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Register = () => {
+  const router = useNavigate();
   const { createUser } = useContext(AuthContext);
 
   const handleRegister = (e) => {
@@ -19,7 +20,9 @@ const Register = () => {
     // create a new user
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        if (result) {
+          Navigate("/login");
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -89,7 +92,10 @@ const Register = () => {
             <p>Accept Term & Conditions</p>
           </div>
           <div className="form-control mt-10 w-3/4">
-            <button className="btn text-white hover:text-black bg-[#403F3F]">
+            <button
+              type="submit"
+              className="btn text-white hover:text-black bg-[#403F3F]"
+            >
               Register
             </button>
           </div>

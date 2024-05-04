@@ -1,14 +1,18 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import userDefaultPic from "../../../assets/user.png";
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const Navbar = () => {
+  const router = useNavigate();
+
   const { user, logOut } = useContext(AuthContext);
   const handleSignOut = () => {
     logOut()
       .then((result) => {
-        console.log(result.user);
+        if (result) {
+          router("/login");
+        }
         // history.push("/login");
       })
       .catch((error) => console.error(error));
@@ -70,14 +74,12 @@ const Navbar = () => {
           </div>
         </div>
         {user ? (
-          <Link to="/login" className="flex items-center">
-            <button
-              onClick={handleSignOut}
-              className="py-2 px-10 bg-[#403F3F] hover:bg-gray-400 hover:text-black text-white font-semibold"
-            >
-              Sign out
-            </button>
-          </Link>
+          <button
+            onClick={handleSignOut}
+            className="py-2 px-10 bg-[#403F3F] hover:bg-gray-400 hover:text-black text-white font-semibold"
+          >
+            Sign out
+          </button>
         ) : (
           <Link to="/login" className="flex items-center">
             <button className="py-2 px-10 bg-[#403F3F] hover:bg-gray-400 hover:text-black text-white font-semibold">
